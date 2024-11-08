@@ -85,26 +85,37 @@ html, body {
   background-color: #138496;
 }
 
-/* Scrollable table container */
+/* Container for the entire table and pagination */
 .table-container {
-  max-width: 100%;
-  max-height: 400px;
-  overflow-y: auto;
-  overflow-x: auto;
-  margin-top: 2rem;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Table Styling */
-.table-container table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  max-width: 100%; /* Ensure it doesn't exceed the screen width */
+  padding: 1rem;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Header Styling */
+/* Wrapper specifically for table scrolling */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  background-color: #ffffff;
+  margin-top: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Set min-width to ensure columns fit within the table */
+.table-wrapper table {
+  min-width: 1200px; /* Adjust this as necessary to fit all columns */
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: #ffffff;
+}
+
+/* Table Header Styling */
 .table-container th {
   position: sticky;
   top: 0;
@@ -114,52 +125,17 @@ html, body {
   padding: 0.75rem;
   text-align: left;
   border-bottom: 2px solid #0056b3;
-  border-top: 1px solid #ddd;
-  border-right: 1px solid #ddd;
 }
 
-.table-container th:last-child {
-  border-right: none;
-}
-
-/* Row Styling */
-.table-container tr {
-  transition: background-color 0.3s ease;
-}
-
-.table-container tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.table-container tr:hover {
-  background-color: #e2f0ff;
-}
-
-/* Cell Styling */
+/* Table Cell Styling */
 .table-container td {
   padding: 0.75rem;
   font-size: 0.95rem;
   color: #333;
   border-bottom: 1px solid #ddd;
-  border-right: 1px solid #ddd;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.table-container td:last-child {
-  border-right: none;
-}
-
-/* Table Borders */
-.table-container th,
-.table-container td {
-  border-left: 1px solid #ddd;
-}
-
-.table-container th:first-child,
-.table-container td:first-child {
-  border-left: none;
 }
 
 /* Pagination styling */
@@ -169,16 +145,12 @@ html, body {
   margin: 1rem 0;
 }
 
-.pagination .page-item {
-  margin: 0 0.25rem;
-}
-
 .pagination .page-link {
-  display: inline-block;
   padding: 0.5rem 0.75rem;
   background-color: #282c34;
   color: #ffffff;
   border-radius: 4px;
+  margin: 0 0.25rem;
   text-decoration: none;
   transition: background 0.3s;
 }
@@ -187,23 +159,3 @@ html, body {
   background-color: #61dafb;
 }
 
-/* Items-per-page selector */
-.items-per-page-container {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.items-per-page-container label {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.items-per-page-container select {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.9rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}

@@ -1,41 +1,73 @@
+/* Container for the entire table and pagination */
+.table-container {
+  width: 100%;
+  max-width: 100%; /* Ensure it doesn't exceed the screen width */
+  padding: 1rem;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Wrapper specifically for table scrolling */
 .table-wrapper {
   width: 100%;
   overflow-x: auto; /* Enables horizontal scrolling */
-  margin-top: 1rem;
   background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.table-container table {
-  min-width: 1000px; /* Set a minimum width to ensure all columns fit */
+/* Set min-width to ensure columns fit within the table */
+.table-wrapper table {
+  min-width: 1200px; /* Adjust this as necessary to fit all columns */
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   background-color: #ffffff;
 }
 
-.table-container th,
-.table-container td {
+/* Table Header Styling */
+.table-container th {
+  position: sticky;
+  top: 0;
+  background-color: #007bff;
+  color: #ffffff;
+  font-weight: bold;
   padding: 0.75rem;
   text-align: left;
-  border-bottom: 1px solid #e0e0e0;
-  white-space: nowrap; /* Prevents text from wrapping */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Truncates text with an ellipsis */
+  border-bottom: 2px solid #0056b3;
 }
 
-.table-container th {
-  background-color: #282c34;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.table-container tr:nth-child(even) {
-  background-color: #f3f3f3;
-}
-
+/* Table Cell Styling */
 .table-container td {
+  padding: 0.75rem;
   font-size: 0.95rem;
   color: #333;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Pagination styling */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.pagination .page-link {
+  padding: 0.5rem 0.75rem;
+  background-color: #282c34;
+  color: #ffffff;
+  border-radius: 4px;
+  margin: 0 0.25rem;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.pagination .page-link:hover {
+  background-color: #61dafb;
 }
